@@ -2,6 +2,7 @@
   background-color: rgba(0,0,0,0);
   padding: 0;
   border: 0;
+  display: none;
   width: 18px;
   height: 19px;
   background-image: url("../../../images/Trash.svg");

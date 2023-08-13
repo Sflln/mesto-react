@@ -21,7 +21,7 @@ class Api {
     }).then((res) => this._getResponseData(res));
   }
 
-  saveUserChanges({ name, about }) {
+  saveUserChanges(name, about) {
     return fetch(this._userUrl, {
       method: "PATCH",
       headers: {
@@ -43,7 +43,7 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        avatar: src.link,
+        avatar: src,
       }),
     }).then((res) => this._getResponseData(res));
   }
@@ -56,7 +56,7 @@ class Api {
     }).then((res) => this._getResponseData(res));
   }
 
-  postNewCard({ name, link }) {
+  postNewCard( name, link ) {
     return fetch(this._cardsUrl, {
       method: "POST",
       headers: {
@@ -95,6 +95,15 @@ class Api {
         authorization: this._token,
       },
     }).then((res) => this._getResponseData(res));
+  }
+  changeLikeCardStatus(cardId, isLiked) {
+    return fetch(`${this._cardsUrl}/${cardId}/likes`,
+      {
+        method: isLiked ? "PUT" : "DELETE",
+        headers: {
+          authorization: this._token,
+        },
+      }).then((res) => this._getResponseData(res));
   }
 }
 
