@@ -28,31 +28,29 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   }
 
   return (
-    <div id="card">
-      <div className="element">
-        <button
-          className={cardDeleteButtonClassName}
-          onClick={handleDeleteCard}
-          type="button"
-          aria-label="удалить"
-        />
-        <img
-          src={card.link}
-          alt={card.name}
-          className="element__img"
-          onClick={handleClick}
-        />
-        <div className="element__unit">
-          <h2 className="element__title">{card.name}</h2>
-          <div className="element__unit element__unit_like">
-            <button
-              className={cardLikeButtonClassName}
-              type="button"
-              aria-label="лайк"
-              onClick={handleCardLike}
-            />
-            <p className="element__likes">{card.likes.length}</p>
-          </div>
+    <div className="element">
+      <button
+        className={cardDeleteButtonClassName}
+        onClick={handleDeleteCard}
+        type="button"
+        aria-label="удалить"
+      />
+      <img
+        src={card.link}
+        alt={card.name}
+        className="element__img"
+        onClick={handleClick}
+      />
+      <div className="element__unit">
+        <h2 className="element__title">{card.name}</h2>
+        <div className="element__unit element__unit_like">
+          <button
+            className={cardLikeButtonClassName}
+            type="button"
+            aria-label="лайк"
+            onClick={handleCardLike}
+          />
+          <p className="element__likes">{card.likes.length}</p>
         </div>
       </div>
     </div>

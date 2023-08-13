@@ -1,19 +1,22 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext";
+import React, { useRef, useEffect} from "react";
+// import CurrentUserContext from "../contexts/CurrentUserContext";
 import PopupWithForm from "./PopupWithForm";
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
-  const currentUser = useContext(CurrentUserContext);
+  // const currentUser = useContext(CurrentUserContext);
   const avatarRef = useRef("");
-  const [avatar, setAvatar] = useState("");
-
+  // const [avatar, setAvatar] = useState("");
   useEffect(() => {
-    setAvatar(currentUser.avatar);
-  }, [currentUser]);
+    avatarRef.current.value = '';
+  }, [isOpen])
 
-  function handleChangeAvatar(event) {
-    setAvatar(event.target.value);
-  }
+  // useEffect(() => {
+  //   setAvatar(currentUser.avatar);
+  // }, [currentUser]);
+
+  // function handleChangeAvatar(event) {
+  //   setAvatar(event.target.value);
+  // }
 
   //Обработчик сабмита формы 
   function handleSubmit(event) {
@@ -40,8 +43,6 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         required
         placeholder="Ссылка на фотографию"
         ref={avatarRef}
-        onChange={handleChangeAvatar}
-        value={avatar ? avatar : ""}
       />
       <span
         id="avatar-error"
